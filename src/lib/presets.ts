@@ -73,12 +73,12 @@ export function itemFromTemplate(templateId: string, name: string, index: number
 export function sampleItems(lang: 'tr' | 'en'): CargoItem[] {
   const tr = lang === 'tr';
   const rows: Omit<CargoItem, 'id' | 'color'>[] = [
-    { name: tr ? 'Akü paleti' : 'Battery pallet', kind: 'pallet', length: 1200, width: 800, height: 1050, weight: 720, quantity: 8, stackable: false, rotatable: true, stop: 2 },
-    { name: tr ? 'Lastik paleti' : 'Tyre pallet', kind: 'pallet', length: 1200, width: 1000, height: 1800, weight: 380, quantity: 6, stackable: false, rotatable: true, stop: 2 },
+    { name: tr ? 'Akü 72Ah (40 adet/palet)' : 'Battery 72Ah (40 per pallet)', kind: 'pallet', length: 1200, width: 800, height: 1050, weight: 720, quantity: 8, stackable: false, rotatable: true, stop: 2 },
+    { name: tr ? 'Lastik 205/55 R16 (paletli)' : 'Tyres 205/55 R16 (palletised)', kind: 'pallet', length: 1200, width: 1000, height: 1800, weight: 380, quantity: 6, stackable: false, rotatable: true, stop: 2 },
     { name: tr ? 'Fren balatası kolisi' : 'Brake pad carton', kind: 'box', length: 600, width: 400, height: 400, weight: 18, quantity: 60, stackable: true, rotatable: true, stop: 1 },
-    { name: tr ? 'Filtre kolisi' : 'Filter carton', kind: 'box', length: 400, width: 300, height: 300, weight: 7, quantity: 80, stackable: true, rotatable: true, stop: 1 },
-    { name: tr ? 'Egzoz borusu' : 'Exhaust pipe', kind: 'long', length: 2400, width: 400, height: 300, weight: 35, quantity: 12, stackable: true, rotatable: false, stop: 3 },
-    { name: tr ? 'Yağ paleti' : 'Engine oil pallet', kind: 'pallet', length: 1200, width: 800, height: 900, weight: 860, quantity: 6, stackable: false, rotatable: true, stop: 3 },
+    { name: tr ? 'Yağ filtresi kolisi' : 'Oil filter carton', kind: 'box', length: 400, width: 300, height: 300, weight: 7, quantity: 80, stackable: true, rotatable: true, stop: 1 },
+    { name: tr ? 'Egzoz borusu (demet)' : 'Exhaust pipes (bundle)', kind: 'long', length: 2400, width: 400, height: 300, weight: 35, quantity: 12, stackable: true, rotatable: false, stop: 3 },
+    { name: tr ? 'Motor yağı 5W-30 (paletli)' : 'Engine oil 5W-30 (palletised)', kind: 'pallet', length: 1200, width: 800, height: 900, weight: 860, quantity: 6, stackable: false, rotatable: true, stop: 3 },
   ];
   return rows.map((r, i) => ({ ...r, id: newItemId(), color: ITEM_COLORS[i % ITEM_COLORS.length]! }));
 }

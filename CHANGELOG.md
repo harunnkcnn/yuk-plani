@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 · 2026-11-05
+
+- Realistic 3D view, now the default: tractor unit with cab details and fuel tank, curtainsider with the near curtain pulled open and rear doors folded back, rigid truck, panel van, corrugated container on a skeletal chassis, asphalt yard with bay lines, image-based lighting and shadows
+- Realistic cargo: EPAL-style pallets (runners, blocks, deck boards), stacked cartons under coloured stretch film, labelled and taped cartons, strapped long bundles
+- Everything is generated in code; no models or images are downloaded
+- "Diagram" mode keeps the previous clean rendering
+- More realistic sample load (automotive parts)
+
 ## 0.1.0 · 2026-11-05
 
 First public release.

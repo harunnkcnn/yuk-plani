@@ -47,7 +47,7 @@ Yük Planı is the free, browser-based version for everyday dispatch work:
 | **Cargo templates** | Euro pallet (1200×800), industrial pallet (1200×1000), carton, long item. Pallets are drawn with their wooden base. |
 | **Rules** | Upright only (90° turning optional per item), "can carry load on top" per item, adjustable minimum base support for stacked cargo, payload limit. |
 | **Delivery order** | Give each item a stop number. Stop 1 ends up nearest the door; nothing for a later stop ever blocks it. |
-| **3D view** | Orbit, zoom, 3D, top, side and rear presets, colour by item or by stop, hover for size, weight and position. |
+| **3D view** | A realistic scene (tractor and curtainsider with the near curtain pulled open, container on a chassis with doors open, EPAL pallets, stretch-wrapped loads, labelled cartons) or a clean diagram. Orbit, zoom, 3D/top/side/rear presets, colour by item or by stop, hover for size, weight and position. Everything is drawn in code; no 3D models or images are downloaded. |
 | **Loading sequence** | Step or play through the plan in the order a forklift driver would load it. |
 | **Loading metres** | The cargo floor drawn to scale as a ruler, with LDM, centre of gravity, kingpin and axles. |
 | **Weight balance** | Centre of gravity along and across the body; for trailers, an estimated split between kingpin and axle group. |
@@ -65,9 +65,27 @@ Yük Planı is the free, browser-based version for everyday dispatch work:
   </tr>
 </table>
 
+<table>
+  <tr>
+    <td><img src="docs/assets/container-en.png" alt="A 40 ft high-cube container on a chassis, doors open, loaded with stretch-wrapped pallets and cartons"></td>
+    <td><img src="docs/assets/rear-en.png" alt="Looking into the container through the open rear doors"></td>
+  </tr>
+  <tr>
+    <td align="center">40' HC container, realistic view</td>
+    <td align="center">Rear view: what the forklift driver sees</td>
+  </tr>
+  <tr>
+    <td><img src="docs/assets/stops-en.png" alt="Halfway through the loading sequence, coloured by delivery stop"></td>
+    <td><img src="docs/assets/diagram-en.png" alt="The same plan in diagram mode"></td>
+  </tr>
+  <tr>
+    <td align="center">Loading sequence, coloured by stop</td>
+    <td align="center">Diagram mode</td>
+  </tr>
+</table>
+
 <p align="center">
-  <img src="docs/assets/stops-en.png" width="560" alt="Halfway through the loading sequence, coloured by delivery stop">
-  <img src="docs/assets/mobile-dark.png" width="220" alt="The planner on a phone in dark mode">
+  <img src="docs/assets/mobile-dark.png" width="240" alt="The planner on a phone in dark mode">
 </p>
 
 ## How the planner works
@@ -120,6 +138,7 @@ src/lib/table.ts     Excel/CSV import and export
 src/lib/share.ts     plan ⇄ compressed link fragment
 src/lib/presets.ts   vehicles, cargo templates, sample load
 src/plan.worker.ts   runs the planner off the main thread
+src/components/scene vehicles, cargo and procedural textures (realistic and diagram views)
 src/components/      3D view (three.js, loaded on demand), ruler, cargo list, print sheet
 ```
 

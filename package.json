@@ -1,7 +1,7 @@
 {
   "name": "yuk-plani",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Open-source 3D load planner for trucks, semi-trailers and containers: pallets, stacking rules, delivery order, loading meters and weight balance. Runs in your browser.",
   "license": "MIT",
   "type": "module",

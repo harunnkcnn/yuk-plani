@@ -5,7 +5,7 @@ import { LoadStrip } from './components/LoadStrip';
 import { PrintPlan } from './components/PrintPlan';
 import { Summary } from './components/Summary';
 import { VehiclePanel } from './components/VehiclePanel';
-import type { ColorBy, ViewName } from './components/Viewer3D';
+import type { ColorBy, Look, ViewName } from './components/Viewer3D';
 import { download } from './download';
 import { usePlan, usePrefersReducedMotion, useStored } from './hooks';
 import { detectLang, dictionaries, type Lang } from './i18n';
@@ -60,6 +60,7 @@ export default function App() {
 
   const [view, setView] = useState<ViewName>('iso');
   const [colorBy, setColorBy] = useState<ColorBy>('item');
+  const [look, setLook] = useStored<Look>('yp.look', () => 'real', (v): v is Look => v === 'real' || v === 'schematic');
   const [importOpen, setImportOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(shared ? dictionaries[lang].sharedLoaded : null);
   const [systemDark, setSystemDark] = useState(() => matchMedia('(prefers-color-scheme: dark)').matches);
@@ -230,7 +231,7 @@ export default function App() {
         <main className="stage">
           <div className="stage-view">
             <Suspense fallback={<span className="busy">{t.planning}</span>}>
-              <Viewer3D vehicle={vehicle} placements={result?.placements ?? []} items={items} colorBy={colorBy} step={step} view={view} theme={resolvedTheme} t={t} lang={lang} />
+              <Viewer3D vehicle={vehicle} placements={result?.placements ?? []} items={items} colorBy={colorBy} look={look} step={step} view={view} theme={resolvedTheme} t={t} lang={lang} />
             </Suspense>
             <div className="view-controls">
               <div className="seg" role="group" aria-label={t.viewLabel}>
@@ -239,6 +240,14 @@ export default function App() {
                     {t.views[v]}
                   </button>
                 ))}
+              </div>
+              <div className="seg" role="group" aria-label={t.lookLabel}>
+                <button type="button" aria-pressed={look === 'real'} onClick={() => setLook('real')}>
+                  {t.lookReal}
+                </button>
+                <button type="button" aria-pressed={look === 'schematic'} onClick={() => setLook('schematic')}>
+                  {t.lookSchematic}
+                </button>
               </div>
               <div className="seg" role="group" aria-label={t.colorBy}>
                 <button type="button" aria-pressed={colorBy === 'item'} onClick={() => setColorBy('item')}>

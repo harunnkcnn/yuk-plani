@@ -47,7 +47,7 @@ Yük Planı, günlük sevkiyat işi için ücretsiz ve tarayıcıda çalışan s
 | **Yük şablonları** | Euro palet (1200×800), endüstriyel palet (1200×1000), koli, uzun yük. Paletler ahşap tabanlarıyla çizilir. |
 | **Kurallar** | Yalnızca dik (90° döndürme yük bazında isteğe bağlı), yük bazında "üstüne yük konabilir", istiflenen yük için ayarlanabilir en az taban desteği, taşıma kapasitesi sınırı. |
 | **Teslimat sırası** | Her yüke bir durak numarası verin. 1. durak kapıya en yakın olur; sonraki bir durağın yükü hiçbir zaman önünü kapatmaz. |
-| **3D görünüm** | Döndürme ve yakınlaştırma; 3D, üstten, yandan ve arkadan görünümler; yüke ya da durağa göre renk; üzerine gelince ölçü, ağırlık ve konum. |
+| **3D görünüm** | Gerçekçi sahne (çekici ve yakın perdesi açılmış tenteli dorse, şasi üstünde kapıları açık konteyner, EPAL paletler, streç filmli yükler, etiketli koliler) ya da sade şema. Döndürme ve yakınlaştırma; 3D, üstten, yandan ve arkadan görünümler; yüke ya da durağa göre renk; üzerine gelince ölçü, ağırlık ve konum. Hepsi kodla çiziliyor; hiçbir 3D model ya da görsel indirilmiyor. |
 | **Yükleme sırası** | Planı bir forkliftçinin yükleyeceği sırayla adım adım izleyin ya da oynatın. |
 | **Yükleme metresi** | Kasa tabanı ölçekli bir cetvel olarak çizilir: LDM, ağırlık merkezi, şkemle pimi ve dingiller. |
 | **Ağırlık dengesi** | Kasa boyunca ve enine ağırlık merkezi; tırlarda pim ile dingil grubu arasında tahmini yük dağılımı. |
@@ -65,9 +65,27 @@ Yük Planı, günlük sevkiyat işi için ücretsiz ve tarayıcıda çalışan s
   </tr>
 </table>
 
+<table>
+  <tr>
+    <td><img src="docs/assets/container-en.png" alt="Şasi üstünde kapıları açık 40 feet HC konteyner; streç filmli paletler ve koliler"></td>
+    <td><img src="docs/assets/rear-en.png" alt="Açık arka kapılardan konteynerin içi"></td>
+  </tr>
+  <tr>
+    <td align="center">40' HC konteyner, gerçekçi görünüm</td>
+    <td align="center">Arkadan görünüm: forkliftçinin gördüğü</td>
+  </tr>
+  <tr>
+    <td><img src="docs/assets/stops-tr.png" alt="Yükleme sırasının yarısı, teslimat durağına göre renklendirilmiş"></td>
+    <td><img src="docs/assets/diagram-en.png" alt="Aynı plan şema görünümünde"></td>
+  </tr>
+  <tr>
+    <td align="center">Yükleme sırası, durağa göre renkli</td>
+    <td align="center">Şema görünümü</td>
+  </tr>
+</table>
+
 <p align="center">
-  <img src="docs/assets/stops-tr.png" width="560" alt="Yükleme sırasının yarısı, teslimat durağına göre renklendirilmiş">
-  <img src="docs/assets/mobile-dark.png" width="220" alt="Telefonda, koyu temada planlayıcı">
+  <img src="docs/assets/mobile-dark.png" width="240" alt="Telefonda, koyu temada planlayıcı">
 </p>
 
 ## Planlayıcı nasıl çalışır
@@ -120,6 +138,7 @@ src/lib/table.ts     Excel/CSV içe ve dışa aktarma
 src/lib/share.ts     plan ⇄ sıkıştırılmış link
 src/lib/presets.ts   araçlar, yük şablonları, örnek yük
 src/plan.worker.ts   planlayıcıyı ana iş parçacığı dışında çalıştırır
+src/components/scene araçlar, yükler ve kodla üretilen dokular (gerçekçi ve şema görünümü)
 src/components/      3D görünüm (three.js, gerektiğinde yüklenir), cetvel, yük listesi, yazdırma formu
 ```
 
