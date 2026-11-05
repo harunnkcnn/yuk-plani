@@ -7,7 +7,7 @@ import { Summary } from './components/Summary';
 import { VehiclePanel } from './components/VehiclePanel';
 import type { ColorBy, Look, ViewName } from './components/Viewer3D';
 import { download } from './download';
-import { usePlan, usePrefersReducedMotion, useStored } from './hooks';
+import { usePlan, useStored } from './hooks';
 import { detectLang, dictionaries, type Lang } from './i18n';
 import { DEFAULT_OPTIONS } from './lib/pack';
 import { itemFromTemplate, sampleItems, vehiclePreset } from './lib/presets';
@@ -64,7 +64,6 @@ export default function App() {
   const [importOpen, setImportOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(shared ? dictionaries[lang].sharedLoaded : null);
   const [systemDark, setSystemDark] = useState(() => matchMedia('(prefers-color-scheme: dark)').matches);
-  const reducedMotion = usePrefersReducedMotion();
 
   const { result, busy } = usePlan(vehicle, items, options);
   const total = result?.placements.length ?? 0;
@@ -77,27 +76,20 @@ export default function App() {
     setStep(result?.placements.length ?? 0);
   }, [result]);
 
+  // Playback is started by the user, so it runs even with "reduce motion" on
+  // (Windows "Show animations: off" sets that); it only adds boxes, nothing slides.
   useEffect(() => {
     if (!playing) return;
-    if (reducedMotion) {
-      setStep(total);
-      setPlaying(false);
-      return;
-    }
     const delay = Math.max(25, Math.min(220, 6000 / Math.max(1, total)));
-    playTimer.current = window.setInterval(() => {
-      setStep((s) => {
-        if (s >= total) {
-          setPlaying(false);
-          return total;
-        }
-        return s + 1;
-      });
-    }, delay);
+    playTimer.current = window.setInterval(() => setStep((s) => Math.min(total, s + 1)), delay);
     return () => {
       if (playTimer.current) clearInterval(playTimer.current);
     };
-  }, [playing, total, reducedMotion]);
+  }, [playing, total]);
+
+  useEffect(() => {
+    if (playing && step >= total) setPlaying(false);
+  }, [playing, step, total]);
 
   useEffect(() => {
     const mq = matchMedia('(prefers-color-scheme: dark)');
