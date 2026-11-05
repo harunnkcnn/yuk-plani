@@ -1,0 +1,49 @@
+{
+  "name": "yuk-plani",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Open-source 3D load planner for trucks, semi-trailers and containers: pallets, stacking rules, delivery order, loading meters and weight balance. Runs in your browser.",
+  "license": "MIT",
+  "type": "module",
+  "author": "Harun (https://github.com/harunnkcnn)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harunnkcnn/yuk-plani.git"
+  },
+  "keywords": [
+    "load-planning",
+    "truck-loading",
+    "container-loading",
+    "pallet",
+    "3d-bin-packing",
+    "logistics",
+    "ldm",
+    "three-js",
+    "turkey"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fontsource/barlow": "^5.3.0",
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "fflate": "^0.8.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.187.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "jsdom": "^31.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  }
+}

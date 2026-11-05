@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <meta name="description" content="Tır, kamyon ve konteyner için açık kaynak 3D yükleme planlayıcı: palet ve koli yerleşimi, istif kuralları, teslimat sırası, yükleme metresi (LDM) ve ağırlık dengesi. Tarayıcıda çalışır." />
+    <meta name="theme-color" content="#e2e5e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#11161b" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="Yük Planı" />
+    <meta property="og:description" content="Open-source 3D load planner for trucks, trailers and containers. Runs in your browser." />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <title>Yük Planı</title>
+  </head>
+  <body>
+    <noscript>Yük Planı JavaScript gerektirir. / Yük Planı requires JavaScript.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

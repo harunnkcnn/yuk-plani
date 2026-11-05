@@ -1,0 +1,28 @@
+name: Bug or bad plan / Hata ya da kötü plan
+description: Something breaks, or a load is planned badly.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The fastest way to reproduce a plan is a **share link** (Paylaşım linki). It contains the whole plan.
+        Bir planı yeniden üretmenin en hızlı yolu **paylaşım linki**dir; planın tamamını içerir.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? / Ne oldu?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect? / Ne bekliyordunuz?
+      description: e.g. "These 30 pallets fit in practice; the planner placed 27."
+  - type: input
+    id: link
+    attributes:
+      label: Share link / Paylaşım linki
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device / Tarayıcı ve cihaz
